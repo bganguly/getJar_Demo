@@ -21,9 +21,9 @@ $(document).ready(function() {
    		.click(function() {
    			var currentImgSrc=$('.marginOneSevenPct.floatLeft img')[1].src;
    			var nextIdx=NS.catgImgArray[currentImgSrc.substring(currentImgSrc.lastIndexOf('/')+1)]+1;
-   			var prefix=currentImgSrc.substr(0,currentImgSrc.lastIndexOf('/'));
-   			var nextImg;
+   			var nextImg,prefix;;
    			if (nextIdx < NS.catgNextImgArray.length) {
+   	   			prefix=currentImgSrc.substr(0,currentImgSrc.lastIndexOf('/'));
 	   			nextImg=NS.catgNextImgArray[nextIdx];
 	   			$('.marginOneSevenPct > img')[0].src=currentImgSrc;
 	   			$('.marginOneSevenPct > img')[1].src=prefix+'/'+nextImg;
@@ -33,9 +33,9 @@ $(document).ready(function() {
 		.click(function() {
 			var currentImgSrc=$('.marginOneSevenPct.floatLeft img')[0].src;
 			var nextIdx=NS.catgImgArray[currentImgSrc.substring(currentImgSrc.lastIndexOf('/')+1)]-1;
-   			var prefix=currentImgSrc.substr(0,currentImgSrc.lastIndexOf('/'));
-   			var nextImg;
+   			var nextImg,prefix;
 			if (nextIdx >= 0) {
+	   			prefix=currentImgSrc.substr(0,currentImgSrc.lastIndexOf('/'));
 	  			nextImg=NS.catgNextImgArray[nextIdx];
 	  			$('.marginOneSevenPct > img')[0].src=prefix+'/'+nextImg;
 	   			$('.marginOneSevenPct > img')[1].src=currentImgSrc;
