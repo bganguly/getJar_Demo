@@ -12,15 +12,19 @@ NS.catgImgArray["Social.jpg"]=7;
 
 NS.catgNextImgArray=["Education.jpg","Entertainment.jpg","Finance.jpg","Food.jpg","Games.jpg","Lifestyle.jpg","Productivity.jpg","Social.jpg"];
 
+//basically , if the nav arrows are clicked, get a reference to some baseline img src attr, then get the next/prev idx from the assciative array,
+//then lookup the corresponding image src from the NextImgArray
+//could have been improved by using a single json object ?
+
 $(document).ready(function() {
    $('.galleryRhtNav ')
    		.click(function() {
    			var currentImgSrc=$('.marginOneSevenPct.floatLeft img')[1].src;
    			var nextIdx=NS.catgImgArray[currentImgSrc.substring(currentImgSrc.lastIndexOf('/')+1)]+1;
-   			var nextImg,prefix;
+   			var prefix=currentImgSrc.substr(0,currentImgSrc.lastIndexOf('/'));
+   			var nextImg;
    			if (nextIdx < NS.catgNextImgArray.length) {
 	   			nextImg=NS.catgNextImgArray[nextIdx];
-	   			prefix=currentImgSrc.substr(0,currentImgSrc.lastIndexOf('/'));
 	   			$('.marginOneSevenPct > img')[0].src=currentImgSrc;
 	   			$('.marginOneSevenPct > img')[1].src=prefix+'/'+nextImg;
    			}	
@@ -29,10 +33,10 @@ $(document).ready(function() {
 		.click(function() {
 			var currentImgSrc=$('.marginOneSevenPct.floatLeft img')[0].src;
 			var nextIdx=NS.catgImgArray[currentImgSrc.substring(currentImgSrc.lastIndexOf('/')+1)]-1;
-   			var nextImg,prefix;
+   			var prefix=currentImgSrc.substr(0,currentImgSrc.lastIndexOf('/'));
+   			var nextImg;
 			if (nextIdx >= 0) {
 	  			nextImg=NS.catgNextImgArray[nextIdx];
-	  			prefix=currentImgSrc.substr(0,currentImgSrc.lastIndexOf('/'));
 	  			$('.marginOneSevenPct > img')[0].src=prefix+'/'+nextImg;
 	   			$('.marginOneSevenPct > img')[1].src=currentImgSrc;
 			}	
