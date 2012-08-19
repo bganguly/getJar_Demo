@@ -17,21 +17,22 @@ $(document).ready(function() {
    		.click(function() {
    			var currentImgSrc=$('.marginOneSevenPct.floatLeft img')[1].src;
    			var nextIdx=NS.catgImgArray[currentImgSrc.substring(currentImgSrc.lastIndexOf('/')+1)]+1;
+   			var nextImg,prefix;
    			if (nextIdx < NS.catgNextImgArray.length) {
-	   			var nextImg=NS.catgNextImgArray[nextIdx];
-	   			var prefix=currentImgSrc.substr(0,currentImgSrc.lastIndexOf('/'));
-	   			$('.marginOneSevenPct > img')[1].src=prefix+'/'+nextImg;
+	   			nextImg=NS.catgNextImgArray[nextIdx];
+	   			prefix=currentImgSrc.substr(0,currentImgSrc.lastIndexOf('/'));
 	   			$('.marginOneSevenPct > img')[0].src=currentImgSrc;
-
+	   			$('.marginOneSevenPct > img')[1].src=prefix+'/'+nextImg;
    			}	
    		});
    $('.galleryLftNav ')
 		.click(function() {
-				var currentImgSrc=$('.marginOneSevenPct.floatLeft img')[0].src;
-				var nextIdx=NS.catgImgArray[currentImgSrc.substring(currentImgSrc.lastIndexOf('/')+1)]-1;
-				if (nextIdx >= 0) {
-	  			var nextImg=NS.catgNextImgArray[nextIdx];
-	  			var prefix=currentImgSrc.substr(0,currentImgSrc.lastIndexOf('/'));
+			var currentImgSrc=$('.marginOneSevenPct.floatLeft img')[0].src;
+			var nextIdx=NS.catgImgArray[currentImgSrc.substring(currentImgSrc.lastIndexOf('/')+1)]-1;
+   			var nextImg,prefix;
+			if (nextIdx >= 0) {
+	  			nextImg=NS.catgNextImgArray[nextIdx];
+	  			prefix=currentImgSrc.substr(0,currentImgSrc.lastIndexOf('/'));
 	  			$('.marginOneSevenPct > img')[0].src=prefix+'/'+nextImg;
 	   			$('.marginOneSevenPct > img')[1].src=currentImgSrc;
 			}	
